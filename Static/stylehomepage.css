@@ -34,7 +34,13 @@ header h1 {
   margin: 0 auto 40px;
 }
 .Main button {
-    color: #f5c518;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 html {
     scroll-behavior: smooth;
