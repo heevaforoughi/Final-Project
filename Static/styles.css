@@ -10,10 +10,6 @@ h2 {
     margin-left: 4rem;
 }
 
-.H1NBA {
-  margin-right: auto;
-}
-
 p {
     font-family: "Winky Rough";
     color: #ccc;
@@ -81,4 +77,20 @@ html {
 
 li {
     color:#ccc;
+}
+.TopHeader {
+  display: flex;
+  justify-content: space-between; /* pushes content to far left and far right */
+  align-items: center;
+  width: 100%;
+}
+
+.button {
+  background-color: #FFDE21;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  font-size: 18px;
+  border-radius: 25px;
+  cursor: pointer;
 }
