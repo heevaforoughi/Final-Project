@@ -1,18 +1,18 @@
 h1 {
     font-family: "Literata";
-    color: #000000;
+    color: #ccc;
     font-size: 50px;
 }
 
 h2 {
     font-family: "Literata";
-    color: #010000;
+    color: #ccc;
     margin-left: 4rem;
 }
 
 p {
     font-family: "Winky Rough";
-    color: #402e18;
+    color: #ccc;
     font-size: 25px
 }
 
@@ -22,27 +22,27 @@ img {
 }
 
 body {
-    background-color: #e8eaee;
+    background-color: #1e1d1d;
     padding: 1rem 6rem;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background-color: rgb(46, 37, 28);
+    background-color: rgb(222, 210, 198);
     margin-top: 1rem;
 }
 
 a:link {
-    color: #41518c;
+    color: #babfd1;
 }
 
 a:visited {
-    color: #372f69;
+    color: #9a94c2;
 }
 
 a:hover{
-    color: #0b1847;
+    color: #9aa4c9;
 }
 
 a:active{
@@ -73,4 +73,8 @@ ol {
 
 html {
     scroll-behavior: smooth;
+}
+
+li {
+    color:#ccc;
 }
