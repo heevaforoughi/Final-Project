@@ -1,1 +1,199 @@
-h1 { font-family: "Literata"; color: #ccc; font-size: 50px; } h2 { font-family: "Literata"; color: #ccc; margin-left: 4rem; } p { font-family: "Winky Rough"; color: #ccc; font-size: 25px } img { height: 400px; border-radius: 10%; } body { background-color: #1e1d1d; padding: 1rem 6rem; } hr { border: 0; height: 1px; background-color: rgb(222, 210, 198); margin-top: 1rem; } a:link { color: #babfd1; } a:visited { color: #9a94c2; } a:hover{ color: #9aa4c9; } a:active{ color: rgb(120, 140, 186); } .fancy-font{ font-family: "Winky Rough"; } li { margin-bottom: 3px; } ol { float: left; margin-left: 4rem; } .wrap-text{ float: left; margin-right: 20px; } .pad { padding-bottom: 110px; } html { scroll-behavior: smooth; } li { color:#ccc; } body { background-color: #1e1d1d; color: yellow; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; } h1 { margin-bottom: 20px; } form { background-color: #2c2c2c; padding: 20px; border-radius: 10px; width: 300px; box-shadow: 0 0 10px yellow; } label, select, textarea, input[type="submit"] { display: block; width: 100%; margin-bottom: 15px; font-size: 1em; } select, textarea { background-color: #1e1d1d; color: yellow; border: 1px solid yellow; padding: 10px; border-radius: 5px; } input[type="submit"] { background-color: yellow; color: #1e1d1d; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+/*─────────────────────────────────────────────
+  Global Styles (Homepage & Sitewide)
+─────────────────────────────────────────────*/
+
+/* Headings */
+h1 {
+    font-family: "Literata";
+    color: #ccc;
+    font-size: 50px;
+  }
+  
+  h2 {
+    font-family: "Literata";
+    color: #ccc;
+    margin-left: 4rem;
+  }
+  
+  /* Paragraphs */
+  p {
+    font-family: "Winky Rough";
+    color: #ccc;
+    font-size: 25px;
+  }
+  
+  /* Images */
+  img {
+    height: 400px;
+    border-radius: 10%;
+  }
+  
+  /* Body & Layout */
+  body {
+    background-color: #1e1d1d;
+    padding: 1rem 6rem;
+    color: yellow;             /* for opinion page fallback */
+    font-family: Arial, sans-serif; /* for opinion page fallback */
+  }
+  
+  /* Horizontal Rule */
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: rgb(222, 210, 198);
+    margin-top: 1rem;
+  }
+  
+  /* Links */
+  a:link {
+    color: #babfd1;
+  }
+  a:visited {
+    color: #9a94c2;
+  }
+  a:hover {
+    color: #9aa4c9;
+  }
+  a:active {
+    color: rgb(120, 140, 186);
+  }
+  
+  /* Lists */
+  ol {
+    float: left;
+    margin-left: 4rem;
+  }
+  
+  li {
+    margin-bottom: 3px;
+    color: #ccc;
+  }
+  
+  /* Floated Text Blocks */
+  .wrap-text {
+    float: left;
+    margin-right: 20px;
+  }
+  
+  /* Utility Padding */
+  .pad {
+    padding-bottom: 110px;
+  }
+  
+  /* Smooth Scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Fancy Font Helper */
+  .fancy-font {
+    font-family: "Winky Rough";
+  }
+  
+  /* Header Layout */
+  .TopHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Generic Button (Homepage) */
+  .button {
+    background-color: #FFDE21;
+    color: #1e1d1d;
+    border: none;
+    padding: 15px 32px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  /*─────────────────────────────────────────────
+    Opinion Page Overrides (Scoped to body.opinion-page)
+  ─────────────────────────────────────────────*/
+  
+  /* Reset layout & center form */
+  body.opinion-page {
+    padding: 0;                 /* override homepage padding */
+    margin: 0;                  /* remove default margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1e1d1d;  /* reaffirm background */
+    color: yellow;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Opinion Page Heading */
+  body.opinion-page h1 {
+    margin-bottom: 20px;
+    color: yellow;
+  }
+  
+  /* Opinion Form Container */
+  body.opinion-page form#opinionForm {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px yellow;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Elements */
+  body.opinion-page form#opinionForm label,
+  body.opinion-page form#opinionForm select,
+  body.opinion-page form#opinionForm textarea,
+  body.opinion-page form#opinionForm input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1em;
+  }
+  
+  /* Select & Textarea Styling */
+  body.opinion-page form#opinionForm select,
+  body.opinion-page form#opinionForm textarea {
+    background-color: #1e1d1d;
+    color: yellow;
+    border: 1px solid yellow;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Submit Button */
+  body.opinion-page form#opinionForm input[type="submit"] {
+    background-color: yellow;
+    color: #1e1d1d;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Top-Left Back Button (Opinion Page) */
+  body.opinion-page button.opinion-back {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: yellow;
+    color: #1e1d1d;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  /* Hover States */
+  body.opinion-page form#opinionForm input[type="submit"]:hover,
+  body.opinion-page button.opinion-back:hover {
+    background-color: #e6e600;
+  }
+  
