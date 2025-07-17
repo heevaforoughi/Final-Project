@@ -15,6 +15,9 @@
       height: 100vh;
       margin: 0;
     }
+    h1 {
+      margin-bottom: 20px;
+    }
     form {
       background-color: #2c2c2c;
       padding: 20px;
@@ -44,15 +47,12 @@
       cursor: pointer;
       font-weight: bold;
     }
-    h1 {
-      margin-bottom: 20px;
-    }
   </style>
 </head>
 <body>
 
   <h1>Share Your Sports Opinion</h1>
-  <form action="#" method="post">
+  <form id="opinionForm">
     <label for="sport">Choose a sport:</label>
     <select name="sport" id="sport" required>
       <option value="">--Select--</option>
@@ -66,6 +66,15 @@
 
     <input type="submit" value="Send Opinion">
   </form>
+
+  <script>
+    document.getElementById('opinionForm')
+      .addEventListener('submit', function(event) {
+        event.preventDefault();       // stop actual form submission
+        alert('We dont care lol');               // popup message
+        this.reset();                 // clear the form
+      });
+  </script>
 
 </body>
 </html>
