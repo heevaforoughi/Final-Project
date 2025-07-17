@@ -1,84 +1,278 @@
-<!-- 
-This file contains the entire code for the HTML workshop for CREATE 2025: SWE
+<!--
+  CREATE 2025 - SWE - NBA Legends page
+  (static images swapped for per-player carousels)
 -->
-<!DOCTYPE html> <!-- Tells you the document type -->
-<html lang="en"> <!-- Tells you the document language -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <head>
-    <meta charset="UTF-8" /> <!-- The character set for the document, allowing the usage of characters like é -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Allows scaling based on size of the browser -->
+    <!-- your existing external file(s) still load if present -->
     <link rel="stylesheet" href="../Static/styles.css" />
-    <!-- Below are the font families used, ignore for now. -->
+
+    <!-- Google fonts already used -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Winky Rough">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sorts Mill Goudy">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Literata">
-    <!-- The title of the website displayed on the browser tab. -->
+
     <title>Top 5 NBA Players of All Time</title>
-    </head>
 
-    <body>
-    <header>
-        <div class="TopHeader">
-            <h1> NBA Legends: Top 5 All Time</h1>
-            <button class="button" onclick="location.href='HomePage.html'">Go Back</button>
+    <!-- =============== CAROUSEL CSS =============== -->
+    <style>
+        /* generic look fixes */
+        body{margin:0;padding:0 1rem;font-family:"Literata",serif;}
+        header .TopHeader{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+        header h1{margin:.5rem 0}
+        header button{margin:.5rem 0}
+
+        /* ---------- carousel frame ---------- */
+        .carousel{
+            position:relative;
+            width:100%;
+            max-width:600px;  /* will shrink on narrow screens */
+            aspect-ratio:3/2; /* uniform size for every player */
+            margin:.7rem 0;
+            overflow:hidden;
+            border-radius:10px;
+            box-shadow:0 4px 10px rgba(0,0,0,.25);
+        }
+
+        /* individual slides */
+        .carousel .slide{
+            position:absolute;inset:0;
+            opacity:0;transition:opacity .8s ease-in-out;
+        }
+        .carousel .slide.active{opacity:1;}
+
+        .carousel img{
+            width:100%;height:100%;object-fit:cover;
+        }
+
+        /* arrows */
+        .carousel .prev,
+        .carousel .next{
+            position:absolute;top:50%;transform:translateY(-50%);
+            padding:10px 14px;font-size:22px;font-weight:bold;
+            background:rgba(0,0,0,.35);color:#fff;
+            border-radius:4px;cursor:pointer;user-select:none;z-index:10;
+            transition:background .2s;
+        }
+        .carousel .prev{left:8px;}
+        .carousel .next{right:8px;}
+        .carousel .prev:hover,.carousel .next:hover{
+            background:rgba(0,0,0,.6);
+        }
+
+        /* dots */
+        .dots{text-align:center;margin-top:.3rem;}
+        .dot{height:10px;width:10px;border-radius:50%;display:inline-block;
+             background:#bbb;margin:0 3px;cursor:pointer;transition:background .3s;}
+        .dot.active,.dot:hover{background:#555;}
+
+        /* smaller arrows on phones */
+        @media(max-width:480px){
+            .carousel .prev,.carousel .next{font-size:18px;padding:8px 12px;}
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="TopHeader">
+        <h1>NBA Legends: Top 5 All Time</h1>
+        <button class="button" onclick="location.href='HomePage.html'">Go Back</button>
+    </div>
+    <hr>
+</header>
+
+<p>Discover and learn about NBA Legends.</p>
+
+<section class="fancy-font">
+    <h2>Table of Contents:</h2>
+    <ol>
+        <li><a href="#mj">Michael Jordan</a></li>
+        <li><a href="#lbj">LeBron James</a></li>
+        <li><a href="#kaj">Kareem Abdul-Jabbar</a></li>
+        <li><a href="#mjo">Magic Johnson</a></li>
+        <li><a href="#kb">Kobe Bryant</a></li>
+    </ol>
+</section>
+
+<section>
+<ol>
+
+<!-- ============================================================= -->
+<!--                     1.  MICHAEL JORDAN                        -->
+<!-- ============================================================= -->
+<div id="mj" class="pad">
+    <h2><li>Michael Jordan</li></h2>
+
+    <div class="carousel" data-player="mj">
+        <div class="slide active">
+            <img src="https://static01.nyt.com/images/2020/05/16/business/16JORDAN-01sub/16JORDAN-01sub-mediumSquareAt3X.jpg" alt="Jordan holding trophy">
         </div>
-        <hr>
-    </header>
-    
-        <p> Discover and learn about NBA Legends. </p>
-        
-        <section class = "fancy-font">
-            <h2>Table of Contents:</h2>
-            <ol>
-                <li> <a href="#mj"> Michael Jordan</a> </li>
-                <li> <a href="#lbj"> LeBron James</a> </li>
-                <li> <a href="#kaj"> Kareem Abdul-Jabbar </a> </li>
-                <li> <a href="#mjo"> Magic Johnson</a> </li>
-                <li> <a href="#kb"> Kobe Bryant</a> </li>
-            </ol>
-            
-        </section>
+        <div class="slide">
+            <img src="https://media.cnn.com/api/v1/images/stellar/prod/160204101907-nba-slam-dunk-5.jpg?q=w_4725,h_2658,x_0,y_0,c_fill" alt="Jordan mid-air dunk">
+        </div>
+        <div class="slide">
+            <img src="https://i.guim.co.uk/img/media/86302dbcc55f07d65c45bb3baf8c864e36bd4320/0_155_3600_2159/master/3600.jpg?width=1200&quality=85&auto=format&fit=max&s=0dba57d4323e0107aef416ae40779f62" alt="Jordan iconic pose">
+        </div>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+    <div class="dots"></div>
 
-        <section>
-            <ol>
-                <div id = "mj" class = "pad">
-                    <h2><li>Michael Jordan</li></h2>
-                    <img src="https://static01.nyt.com/images/2020/05/16/business/16JORDAN-01sub/16JORDAN-01sub-mediumSquareAt3X.jpg">
-                    <p> Michael Jordan is widely considered the greatest basketball player of all time. With 6 NBA championships, 5 MVPs, and a perfect Finals record, his clutch performances, scoring ability, and killer instinct defined an era. </p>
-                    <hr>
-                </div>
-                
-                <div id = "lbj" class = "pad"> 
-                    <h2> <li> LeBron James </li> </h2>
-                    <img src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/lebron-james-all-time-scoring-record-andrew-d-bernstein.jpg">
-                    <p> LeBron James has combined elite athleticism, basketball IQ, and longevity like no one else. With 4 NBA titles and the all-time scoring record, he has remained dominant across two decades and multiple teams. </p>
-                    <hr>
-                </div>
+    <p>Michael Jordan is widely considered the greatest basketball player of all time. With 6 NBA championships, 5 MVPs, and a perfect Finals record, his clutch performances, scoring ability, and killer instinct defined an era.</p>
+    <hr>
+</div>
 
-                <div id = "kaj" class = "pad"> 
-                    <h2> <li> Kareem Adbul-Jabbar </li> </h2>
-                    <img src="https://hips.hearstapps.com/hmg-prod/images/kareem-abdul-jabbar-of-the-los-angeles-lakers-shoots-a-free-news-photo-1643724792.jpg">
-                    <p> Kareem Abdul-Jabbar is the NBA’s all-time leading scorer for nearly 40 years, thanks to his unstoppable skyhook. With 6 MVPs and 6 championships, his consistency and excellence spanned two decades. </p>
-                    <hr>
-                </div>
-                
-                <div id = "mjo" class = "pad">
-                    <h2><li>Magic Johnson </li></h2>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDTEY8Xu_tFbDl0YkHnR52AIRnwSv0fpiB4g&s"> 
-                    <p> Magic Johnson revolutionized the point guard position with his 6'9” frame and unmatched court vision. A 5-time NBA champion and 3-time MVP, his flashy yet efficient play defined the Showtime Lakers. </p>
-                    <hr>
-                </div>
+<!-- ============================================================= -->
+<!--                     2.  LEBRON JAMES                          -->
+<!-- ============================================================= -->
+<div id="lbj" class="pad">
+    <h2><li>LeBron James</li></h2>
 
-                <div id = "kb" class = "pad">
-                    <h2><li>Kobe Bryant</li></h2>
-                    <img src="https://cdn.nba.com/teams/legacy/www.nba.com/lakers/sites/lakers/files/getty-images-51790736.jpg">
-                    <p> Kobe Bryant was a relentless competitor with a legendary work ethic. A 5-time NBA champion and one of the most skilled scorers ever, his "Mamba Mentality" continues to inspire athletes around the world. </p>
-                    <hr>
-                </div>            
-            </ol>
-        </section>
+    <div class="carousel" data-player="lbj">
+        <div class="slide active">
+            <img src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/lebron-james-all-time-scoring-record-andrew-d-bernstein.jpg" alt="LeBron scoring record celebration">
+        </div>
+        <div class="slide">
+            <img src="https://miro.medium.com/v2/resize:fit:634/0*vYQMANZ3ghGvQgWI." alt="LeBron tomahawk dunk">
+        </div>
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHQhdEL1z6t_olqmtcJOrXNXK7xRwGdo9LDA&s" alt="Funny LeBron face">
+        </div>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+    <div class="dots"></div>
 
-    </body>
+    <p>LeBron James has combined elite athleticism, basketball IQ, and longevity like no one else. With 4 NBA titles and the all-time scoring record, he has remained dominant across two decades and multiple teams.</p>
+    <hr>
+</div>
 
+<!-- ============================================================= -->
+<!--                   3.  KAREEM ABDUL-JABBAR                     -->
+<!-- ============================================================= -->
+<div id="kaj" class="pad">
+    <h2><li>Kareem Abdul-Jabbar</li></h2>
+
+    <div class="carousel" data-player="kaj">
+        <div class="slide active">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/kareem-abdul-jabbar-of-the-los-angeles-lakers-shoots-a-free-news-photo-1643724792.jpg" alt="Kareem at free throw line">
+        </div>
+        <div class="slide">
+            <img src="https://cdn.nba.com/manage/2022/04/kareem-trophy-1982.jpg" alt="Kareem holding finals trophy">
+        </div>
+        <div class="slide">
+            <img src="https://cdn.nba.com/manage/2021/07/kareem-sky-hook-vs-knicks-archived.jpg" alt="Kareem sky hook">
+        </div>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+    <div class="dots"></div>
+
+    <p>Kareem Abdul-Jabbar’s unstoppable skyhook kept him atop the NBA scoring list for almost 40 years. With 6 MVPs and 6 championships, his consistency and excellence spanned two full decades.</p>
+    <hr>
+</div>
+
+<!-- ============================================================= -->
+<!--                     4.  MAGIC JOHNSON                         -->
+<!-- ============================================================= -->
+<div id="mjo" class="pad">
+    <h2><li>Magic Johnson</li></h2>
+
+    <div class="carousel" data-player="mjo">
+        <div class="slide active">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDTEY8Xu_tFbDl0YkHnR52AIRnwSv0fpiB4g&s" alt="Magic no look pass">
+        </div>
+        <div class="slide">
+            <img src="https://media.cnn.com/api/v1/images/stellar/prod/231030115859-magic-johnson-1989.jpg?c=16x9&q=h_833,w_1480,c_fill" alt="Magic 1989 dribble">
+        </div>
+        <div class="slide">
+            <img src="https://cdn.nba.com/manage/2021/08/magic-johnson-iso-archive-1568x882.jpg" alt="Magic calling play">
+        </div>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+    <div class="dots"></div>
+
+    <p>Magic Johnson revolutionised the point-guard spot with his 6′9″ frame and unmatched vision. A 5-time champion and 3-time MVP, his flashy yet efficient play defined the Showtime Lakers.</p>
+    <hr>
+</div>
+
+<!-- ============================================================= -->
+<!--                       5.  KOBE BRYANT                         -->
+<!-- ============================================================= -->
+<div id="kb" class="pad">
+    <h2><li>Kobe Bryant</li></h2>
+
+    <div class="carousel" data-player="kb">
+        <div class="slide active">
+            <img src="https://cdn.nba.com/teams/legacy/www.nba.com/lakers/sites/lakers/files/getty-images-51790736.jpg" alt="Kobe celebration">
+        </div>
+        <div class="slide">
+            <img src="https://media.cnn.com/api/v1/images/stellar/prod/200127110655-kobe-bryant-4-profile-shot.jpg?q=w_3000,h_2010,x_0,y_0,c_fill" alt="Kobe thoughtful profile">
+        </div>
+        <div class="slide">
+            <img src="https://www.bostonherald.com/wp-content/uploads/2020/02/kobe4.jpg?w=1024" alt="Kobe reverse dunk">
+        </div>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+    <div class="dots"></div>
+
+    <p>Kobe Bryant’s relentless “Mamba Mentality” produced 5 NBA titles and countless iconic moments. His work ethic continues to inspire athletes around the globe.</p>
+    <hr>
+</div>
+
+</ol>
+</section>
+
+<!-- =====================  CAROUSEL  JS  ===================== -->
+<script>
+document.querySelectorAll('.carousel').forEach(setupCarousel);
+
+function setupCarousel(carousel){
+    const slides = carousel.querySelectorAll('.slide');
+    const prev   = carousel.querySelector('.prev');
+    const next   = carousel.querySelector('.next');
+
+    // build dots just after the carousel
+    const dotsBox = carousel.parentElement.querySelector('.dots');
+    slides.forEach((_,i)=>{
+        const dot = document.createElement('span');
+        dot.className='dot'+(i===0?' active':'');
+        dot.addEventListener('click',()=>show(i,true));
+        dotsBox.appendChild(dot);
+    });
+    const dots = dotsBox.querySelectorAll('.dot');
+
+    let idx = 0;
+    const delay = 5000;
+    let timer = setInterval(()=>show(idx+1),delay);
+
+    function show(n,manual=false){
+        slides[idx].classList.remove('active');
+        dots[idx].classList.remove('active');
+
+        idx = (n+slides.length)%slides.length;
+
+        slides[idx].classList.add('active');
+        dots[idx].classList.add('active');
+
+        if(manual){ resetTimer(); }
+    }
+    function resetTimer(){
+        clearInterval(timer);
+        timer = setInterval(()=>show(idx+1),delay);
+    }
+
+    prev.addEventListener('click', ()=>show(idx-1,true));
+    next.addEventListener('click', ()=>show(idx+1,true));
+}
+</script>
+</body>
 </html>
