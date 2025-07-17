@@ -1,3 +1,9 @@
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #1e1d1d;
@@ -71,5 +77,26 @@ html {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 25px;
-  
+
+}
+.card {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+.card h3 {
+  color: #f5c518;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card p {
+  color: #ccc;
+}
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #777;
 }
